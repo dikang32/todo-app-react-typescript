@@ -19,7 +19,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   // gap: 372px;
-  &__text {
+  &__name {
     width: 161px;
     color: #0a1629;
     // font-family: $fontFamily;
@@ -40,7 +40,8 @@ body {
     justify-content: center;
     align-items: center;
     gap: 12px;
-    p {
+    cursor: pointer;
+    p.header__text {
       color: white;
       text-align: center;
       font-size: 16px;
@@ -84,7 +85,7 @@ body {
     gap: 40px;
     border-radius: 16px;
     background: #fff;
-    &__title {
+    div.list__title {
       width: 200px;
       display: flex;
       flex-direction: column;
@@ -102,7 +103,7 @@ body {
         line-height: normal;
       }
     }
-    &__priority {
+    div.list__priority {
       width: 72px;
       display: flex;
       flex-direction: column;
@@ -121,7 +122,7 @@ body {
         text-transform: capitalize;
       }
     }
-    &__progress {
+    div.list__progress {
       color: #7d8592;
       text-align: center;
       font-family: Arial;
@@ -138,9 +139,15 @@ body {
       border-radius: 8px;
       background: #edeef0;
     }
-    &editButton {
+    button.list__edit-button {
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
     }
-    &deleteButton {
+    button.list__delete-button {
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
     }
   }
 }
