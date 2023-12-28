@@ -13,8 +13,14 @@ body {
   line-height: normal;
 }
 
-.header {
+.contaner-header {
   padding: 50px 338px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  width: 690px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -72,21 +78,22 @@ body {
   //   left: 50%;
   //   top: 50%;
   //   transform: translate(-50%, -50%);
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
   &__item {
-    width: 100%;
+    // width: 100%;
+    max-width: 722px;
     padding: 24px 32px;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
     gap: 40px;
     border-radius: 16px;
     background: #fff;
     div.list__title {
-      width: 200px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -95,6 +102,7 @@ body {
         @include h5Style();
       }
       p {
+        width: 200px;
         color: #0a1629;
         // font-family: Poppins;
         font-size: 16px;
@@ -104,7 +112,6 @@ body {
       }
     }
     div.list__priority {
-      width: 72px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -113,6 +120,7 @@ body {
         @include h5Style();
       }
       p {
+        width: 72px;
         color: #f73446;
         // font-family: Poppins;
         font-size: 16px;
@@ -122,7 +130,7 @@ body {
         text-transform: capitalize;
       }
     }
-    div.list__progress {
+    button.list__progress {
       color: #7d8592;
       text-align: center;
       font-family: Arial;
@@ -138,16 +146,81 @@ body {
       gap: 10px;
       border-radius: 8px;
       background: #edeef0;
-    }
-    button.list__edit-button {
-      background-color: transparent;
-      border: 0;
+      border: none;
       cursor: pointer;
     }
-    button.list__delete-button {
-      background-color: transparent;
-      border: 0;
-      cursor: pointer;
+    div.list__group-button {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+
+      button.list__edit-button {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+      }
+      button.list__delete-button {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  .contaner-header {
+    padding: 50px 15px 40px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header {
+    // padding: 50px 15px 40px 15px;
+  }
+  .container {
+    padding: 0 15px;
+  }
+  .list {
+    width: 100%;
+    //   max-width: 722px;
+    margin: 0 auto;
+    //   position: absolute;
+    //   left: 50%;
+    //   top: 50%;
+    //   transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    gap: 20px;
+    &__item {
+      width: 370px;
+      padding: 20px;
+      gap: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+    div.list__title {
+      h5 {
+        width: 32px;
+      }
+    }
+    div.list__priority {
+      h5 {
+        width: 47px;
+      }
+    }
+    button.list__progress {
+      width: 100px;
+      padding: 8px 12px;
+    }
+    div.list__group-button {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 24px;
     }
   }
 }

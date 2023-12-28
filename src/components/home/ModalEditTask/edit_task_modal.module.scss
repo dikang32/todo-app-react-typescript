@@ -62,39 +62,70 @@
       font-weight: 400;
       line-height: normal;
     }
+    input.input--disabled {
+      width: 440px;
+      display: flex;
+      padding: 12px 20px;
+      align-items: flex-start;
+      gap: 10px;
+      border-radius: 8px;
+      border: 2px solid #f73446; /* Màu viền ô input đỏ */
+    }
   }
   &__priority{
     width: 100%;
-    div.modal__group-button{
+    div.modal__group-button {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      button.modal__button{
+      cursor: pointer;
+      button.modal__button {
         width: 120px;
         height: 36px;
-        border: 1px solid #000;
-        border-radius: 10px;
         background-color: transparent;
+        border-radius: 10px;
+      }
+      button.modal__button--high {
+        border: 1px solid #f73446;
+        color: #f73446;
+        text-align: center;
         font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 142.857% */
+        cursor: pointer;
+        &.selected{
+          background-color: #f73446;
+          color: white;
+        }
+      }
+      button.modal__button--medium {
+        border: 1px solid #ffbd21;
+        color: #ffbd21;
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
         font-weight: 400;
         line-height: 20px;
+        cursor: pointer;
+        &.selected{
+          background-color: #ffbd21;
+          color: white;
+        }
+      }
+      button.modal__button--low {
+        border: 1px solid #0ac947;
+        color: #0ac947;
         text-align: center;
-      }
-      button.modal__button--high{
-        color: #F73446;
-        border-color: #F73446;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
         cursor: pointer;
-      }
-      button.modal__button--medium{
-        color: #FFBD21;
-        border-color: #FFBD21;
-        cursor: pointer;
-      }
-      button.modal__button--low{
-        color: white;
-        border-color: #0AC947;
-        background-color: #0AC947;
-        cursor: pointer;
+        &.selected{
+          background-color: #0ac947;
+          color: white;
+        }
       }
     }
   }
