@@ -78,15 +78,15 @@
     // input:not(:placeholder-shown){
     //   border-color: #f73446;
     // }
-    input.input--disabled {
-      width: 440px;
-      display: flex;
-      padding: 12px 20px;
-      align-items: flex-start;
-      gap: 10px;
-      border-radius: 8px;
-      border: 2px solid #f73446; /* Màu viền ô input đỏ */
-    }
+    // input.input--disabled {
+    //   width: 440px;
+    //   display: flex;
+    //   padding: 12px 20px;
+    //   align-items: flex-start;
+    //   gap: 10px;
+    //   border-radius: 8px;
+    //   border: 2px solid #f73446; /* Màu viền ô input đỏ */
+    // }
   }
   &__priority {
     width: 100%;
@@ -169,6 +169,17 @@
       font-weight: 600;
       color: white;
       cursor: pointer;
+    }
+    button.button--disabled{
+      width: 114px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid #bea6ff;
+      background: #bea6ff;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
     }
     button.modal__secondary {
       width: 118px;

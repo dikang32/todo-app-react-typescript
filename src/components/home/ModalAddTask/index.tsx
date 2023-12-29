@@ -3,6 +3,7 @@ import styles from './add_task_modal.module.scss'
 import { v4 as uuidv4 } from "uuid";
 
 import { IState as Props } from '../../../pages/Home'
+import { useEffect } from 'react';
 interface IProps {
     openAddModal: Props['openAddModal'],
     setOpenAddModal: React.Dispatch<React.SetStateAction<boolean>>,
@@ -26,8 +27,11 @@ function ModalAddTask({
     isValidate,
     prioritySelected,
     setPrioritySelected }: IProps) {
+    useEffect(() => {
+        setIsValidate(task.title === '');
+    }, [task.title, setIsValidate]);
     const handleAddTask = () => {
-        if (task.title.trim() === "") {
+        if (task.title === "") {
             // const disablesInput = document.querySelector('input');
             // disablesInput?.classList.add('input--disabled')
             setIsValidate(true)
@@ -49,7 +53,7 @@ function ModalAddTask({
     }
     const onChangeTargetTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTask({ ...task, title: e.target.value })
-        setIsValidate(false)
+        setIsValidate(e.currentTarget.value === "")
     }
     const onChangeTargetPriority = (e: React.FormEvent<HTMLButtonElement>) => {
         setTask({ ...task, priority: e.currentTarget.value })
@@ -72,7 +76,7 @@ function ModalAddTask({
                     <input
                         type="text"
                         placeholder='Task name'
-                        className={clsx({ [styles["input--disabled"]]: isValidate })}
+                        // className={clsx({ [styles["input--disabled"]]: isValidate })}
                         // style={isValidate ? { '::placeholder': { color: "red" } } : {}}
                         onChange={onChangeTargetTitle}
                     />
@@ -107,8 +111,18 @@ function ModalAddTask({
                     </div>
                 </div>
                 <div className={styles.modal__output}>
-                    <button className={styles.modal__primary} onClick={handleAddTask}>Add</button>
-                    <button className={styles.modal__secondary} onClick={() => setOpenAddModal(false)}>Cancel</button>
+                    <button
+                        className={
+                            clsx(styles.modal__primary,
+                                { [styles["button--disabled"]]: isValidate })}
+                        onClick={handleAddTask}
+                        disabled={isValidate}
+                    // className={clsx({ [styles["input--disabled"]]: isValidate })}
+                    >Add</button>
+                    <button
+                        className={styles.modal__secondary}
+                        onClick={() => setOpenAddModal(false)}
+                    >Cancel</button>
                 </div>
             </section>
         </div>

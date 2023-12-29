@@ -32,22 +32,22 @@ function ModalEditTask({
 
     const onChangeTargetTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEditedTask({ ...editedTask, title: e.target.value })
-        setIsValidate(false)
+        setIsValidate(e.currentTarget.value === "")
     }
     const onChangeTargetPriority = (e: React.FormEvent<HTMLButtonElement>) => {
         // setTask({ ...task, priority: e.currentTarget.value })
         setEditedTask({ ...editedTask, priority: e.currentTarget.value })
         // setPrioritySelected(e.currentTarget.value)
     }
-    const handleConfirmEdit = () => { 
-        if (editedTask.title.trim() === ""){
+    const handleConfirmEdit = () => {
+        if (editedTask.title.trim() === "") {
             setIsValidate(true)
             return
         }
-        const newTaskList = taskList.map((task,index)=>{
-            if (editedTask.id === task.id){
+        const newTaskList = taskList.map((task, index) => {
+            if (editedTask.id === task.id) {
                 return editedTask;
-            } else{
+            } else {
                 return task;
             }
         });
@@ -103,7 +103,12 @@ function ModalEditTask({
                     </div>
                 </div>
                 <div className={styles.modal__output}>
-                    <button className={styles.modal__primary} onClick={handleConfirmEdit}>Edit</button>
+                    <button className={
+                        clsx(styles.modal__primary,
+                            { [styles["button--disabled"]]: isValidate })}
+                        onClick={handleConfirmEdit}
+                        disabled={isValidate}
+                    >Edit</button>
                     <button className={styles.modal__secondary} onClick={() => setOpenEditModal(false)}>Cancel</button>
                 </div>
             </section>
